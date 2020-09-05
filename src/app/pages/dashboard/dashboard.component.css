@@ -1,0 +1,10 @@
+.slide{
+    width: 30%;
+    min-height: 100vh;
+}
+.br{
+    border-right: 1px solid lightgray;
+}
+.navegacion{
+    width: 70%;
+}

@@ -1,0 +1,65 @@
+<div class="p-2">
+    <ng-container *ngIf="loading; then thenTemplate; else elseTemplate"></ng-container>
+    <ng-template #thenTemplate>
+        <div class="d-flex justify-content-center">
+                <div class="row perfil">
+                    <div class="col-6" >
+                        <div class="row align-items-center m-2">
+                            <div class="col-2 ">
+                                <fa-icon [icon]="faUser"></fa-icon>
+                            </div>
+                            <div class="col-10">
+                                <div>Nombre</div>
+                                 <div class="font-weight-bold">{{perfil.names}}</div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center m-2">
+                            <div class="col-2 ">
+                                <fa-icon [icon]="faUserFriends"></fa-icon>
+                            </div>
+                            <div class="col-10">
+                                <div>Apellidos</div>
+                                <div class="font-weight-bold">{{perfil.lastNames}}</div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center m-2">
+                            <div class="col-2 ">
+                                <fa-icon [icon]="faAngleLeft"></fa-icon>
+                                <fa-icon [icon]="faAngleRight"></fa-icon>
+                            </div>
+                            <div class="col-10">
+                                <div>Nombre del usuario</div>
+                                <div class="font-weight-bold">{{perfil.username}}</div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center m-2">
+                            <div class="col-2 ">
+                                 <fa-icon [icon]="faToolbox"></fa-icon>
+                            </div>
+                            <div class="col-10">
+                                <div>Rol</div>
+                                 <div class="font-weight-bold">{{perfil.rolDTO.name}}</div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center m-2">
+                            <div class="col-2 ">
+                                <fa-icon [icon]="faCalendarAlt"></fa-icon>
+                            </div>
+                            <div class="col-10">
+                                <div>Fecha de creacion</div>
+                                <div class="font-weight-bold">{{perfil.createdAt|date}}</div>
+                            </div>
+                        </div>
+                     </div>
+                     <div class="col-6">
+                     <img [src]="img" width="90%" alt="">
+                    </div>
+                </div>
+        </div>
+    </ng-template>
+    <ng-template #elseTemplate>
+        <div class="d-flex justify-content-center">
+            <fa-icon class="text-primary" [icon]="faSpinner" size="4x" [spin]="true"></fa-icon>
+        </div>
+    </ng-template>
+</div>

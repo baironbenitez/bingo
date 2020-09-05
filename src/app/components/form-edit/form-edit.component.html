@@ -1,0 +1,36 @@
+<ng-container *ngIf="edita; then thenTemplate; else elseTemplate"></ng-container>
+<ng-template #thenTemplate>
+  <ng-container *ngIf="loading; else elseTemplate">
+    <div class="figure-container">
+      <div class="figure" >
+          <div class="figure-item">
+            <div class="figure-title">
+               <span class="">{{figure.name}}</span> 
+            </div>
+                <div class="figure-item-grid">
+                    <div class="item-container">
+                        <div class="item" role="button" (click)="cambio(i)"   [ngClass]="{'bg-primary': item,'bg-secondary':!item}"  *ngFor="let item of figure.positionsWinner;let i=index">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-2">
+                  <button class="btn btn-primary mr-1" (click)="edit()" type="button">Aceptar</button>
+                  <button class="btn btn-danger" [routerLink]="['/dashboard/figure']" type="button">Cancelar</button>
+                </div>
+           </div>    
+        </div>
+      </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="d-flex justify-content-center">
+      <fa-icon [icon]="faSpinner" [spin]="true" class="text-primary" size="4x" ></fa-icon>
+    </div>
+  </ng-template>
+  
+</ng-template>
+<ng-template #elseTemplate>
+  <div class="d-flex justify-content-center">
+    <fa-icon [icon]="faCheckCircle" class="text-success" size="4x" ></fa-icon>
+  </div>
+</ng-template>

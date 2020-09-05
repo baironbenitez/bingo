@@ -1,0 +1,27 @@
+
+
+<ng-container *ngIf="loading; then thenTemplate; else elseTemplate"></ng-container>
+<ng-template #thenTemplate>
+    <table class="table table-dark">
+        <thead class="thead-light">
+            <tr>
+                <th>Nombre</th>
+                <th>Oportunidad</th>
+                <th>Cerrar al azar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of listGroupFigure">
+                <td>{{item.name}}</td>
+                <td>{{item.opportunity}}</td>
+                <td>{{item.closeAt}}</td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>
+<ng-template #elseTemplate>
+    <div class="d-flex justify-content-center">
+        <fa-icon class="text-primary" [icon]="faSpinner" size="4x" [spin]="true"></fa-icon>
+    </div> 
+</ng-template>
+ 

@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlUser:'https://java.bocetos.co/userred-0.0.1-SNAPSHOT/',
+  urlFigure:'https://java.bocetos.co/gamered-0.0.1-SNAPSHOT/'
 };
 
 /*

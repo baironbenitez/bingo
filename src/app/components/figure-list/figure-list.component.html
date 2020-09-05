@@ -1,0 +1,32 @@
+
+
+ <ng-container *ngIf="loading; then thenTemplate; else elseTemplate"></ng-container>
+ <ng-template #thenTemplate>
+    <a [routerLink]="['/dashboard/create/figure']" class="btn btn-light m-2">Nueva <fa-icon class="text-success" [icon]="faPlusCircle"></fa-icon></a>
+    <div class="figure-container">
+        <div class="figure" >
+          <div class="figure-item" *ngFor="let figure of figuras">
+            <div class="figure-title">
+                <div class="text-right">
+                    <fa-icon class="text-primary pr-1 overp" [routerLink]="['/dashboard/figure',figure.id]" role="button" [icon]="faEdit"></fa-icon>
+                </div>
+               <span class="">{{figure.name}}</span>
+                
+            </div>
+                <div class="figure-item-grid">
+                    <div class="item-container">
+                        <div class="item" [ngClass]="{'bg-primary': item,'bg-secondary':!item}"  *ngFor="let item of figure.positionsWinner;let i=index">
+                           
+                        </div>
+                    </div>
+                </div>
+           </div>    
+        </div>
+     </div>
+ </ng-template>
+ <ng-template #elseTemplate>
+    <div class="d-flex justify-content-center">
+        <fa-icon class="text-primary" [icon]="faSpinner" size="4x" [spin]="true"></fa-icon>
+    </div> 
+ </ng-template>
+ 
